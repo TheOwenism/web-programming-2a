@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>IERG4210 Shopping Place</title>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+</head>
+
+<body>
+
+<style>
+    body{
+        font-family:Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 12px;
+    }
+
+    .product-link{
+        text-decoration: underline;
+        font-weight: bold;  
+        color:black;     
+    }
+
+    .thumbnail{
+        width:100px;
+        height:100px;
+        overflow:hidden;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        padding: 5px;
+    }
+
+    .col-sm{
+        text-align:center;
+        margin-bottom: 20px;
+    }
+
+
+    .nav{
+        font-size:20px;
+        border-bottom: 4px solid #dddddd;
+        margin-bottom: 10px;
+    }
+    .breadcrumb{
+        word-wrap: break-word;
+        width:50%;
+    }
+
+    .list-group{
+        word-wrap: break-word;
+        font-size:15px;
+    }
+    .shopping-list-value{
+        font-size:20px;
+        border-bottom: 5px solid white;
+    }
+
+    .shopping-list-expand{
+        display:none;
+        position:absolute;
+        margin-right: 40px;
+        width:200px;
+    }
+
+    .shopping-list-container{
+        margin-right:20px;
+        margin-bottom:5px;
+        margin: 5px 20px 5px;
+        position:relative;
+        display:inline-block;   
+    }
+
+    .shopping-list-container:hover .shopping-list-expand{
+        display:block;
+    }
+
+    .input-number-of-item{
+        width:47px;
+        height:20px;
+        font-size: 15px;
+        float:right;
+        margin-left:5px;
+    }
+
+</style>
+
+<nav class="nav justify-content-end">
+       <div class="shopping-list-container">
+           <div class="shopping-list-value"><div class="fa fa-shopping-cart"></div> Shopping list $66.6</div>
+            
+           <div class="shopping-list-expand">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">CUHK<input type="number" class="input-number-of-item" value="1"></input><div class="total">Sub-total: 33.3</div></li>
+                    <li class="list-group-item">IE<input type="number" class="input-number-of-item" value="1"></input><div class="total">Sub-total: 33.3</div></li>
+                    <li class="list-group-item"><button>checkout</button></li>
+                </ul>
+           </div>
+
+        </div>
+</nav>
+
+<div class="row">
+        <div class="col-2">
+          <div class="list-group" id="list-tab" role="tablist">
+            <a class="list-group-item list-group-item-action active" id="list-hot-item-list" data-toggle="list" href="#list-hot-item" role="tab" aria-controls="hot-item">Hot Item</a>
+            <a class="list-group-item list-group-item-action" id="list-food-list" data-toggle="list" href="#list-food" role="tab" aria-controls="food">Food</a>
+            <a class="list-group-item list-group-item-action" id="list-gadgets-list" data-toggle="list" href="#list-gadgets" role="tab" aria-controls="gadgets">Gadgets</a>
+            <a class="list-group-item list-group-item-action" id="list-clothes-list" data-toggle="list" href="#list-clothes" role="tab" aria-controls="clothes">Clothes</a>
+          </div>
+        </div>
+        <div class="col-8">
+          <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="list-hot-item" role="tabpanel" aria-labelledby="list-hot-item">
+
+                    <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb arr-right">
+                              <li class="breadcrumb-item"><a href="#">Home</a></li>
+                              <li class="breadcrumb-item active" aria-current="page">Hot Item</a></li>
+                              <!-- <li class="breadcrumb-item active" aria-current="page">Data</li> -->
+                            </ol>
+                    </nav>
+
+                    <div class="container">
+                            <div class="row">
+                                  <div class="col-sm">
+                                    <a href="./product_page_IE.html"><img class="thumbnail" src="https://media.licdn.com/dms/image/C4E0BAQGG-uRZ3dYPag/company-logo_400_400/0?e=1576713600&v=beta&t=dxKZhze2LVxd1ZAkN86jyQcg9V3ADDwzTdNdSIIOwso" alt="logo"></a>
+                                    <div class="product_name"><a class="product-link" href="./product_page_IE.html">IE</a></div>
+                                    <div class="product_price">$33.3</div>
+                                    <button class="add-but fa fa-plus"></button>
+                                  </div>
+                                  <div class="col-sm">
+                                    <a href="./product_page_CUHK.html"><img class="thumbnail" src="https://upload.wikimedia.org/wikipedia/en/thumb/8/87/CUHK.svg/1200px-CUHK.svg.png" alt="logo"></a>
+                                    <div class="product_name"><a class="product-link" href="./product_page_CUHK.html">CUHK</a></div>
+                                    <div class="product_price">$33.3</div>
+                                    <button class="add-but fa fa-plus"></button>
+                                  </div>
+                                  <div class="col-sm">
+                                    <a href="./product_page_CUHK.html"><img class="thumbnail" src="https://upload.wikimedia.org/wikipedia/en/thumb/8/87/CUHK.svg/1200px-CUHK.svg.png" alt="logo"></a>
+                                    <div class="product_name"><a class="product-link" href="./product_page_CUHK.html">CUHK</a></div>
+                                    <div class="product_price">$33.3</div>
+                                    <button class="add-but fa fa-plus"></button>
+                                  </div>
+                            </div>
+
+                            <div class="row">
+                                    <div class="col-sm">
+                                      <a href="./product_page_IE.html"><img class="thumbnail" src="https://media.licdn.com/dms/image/C4E0BAQGG-uRZ3dYPag/company-logo_400_400/0?e=1576713600&v=beta&t=dxKZhze2LVxd1ZAkN86jyQcg9V3ADDwzTdNdSIIOwso" alt="logo"></a>
+                                      <div class="product_name"><a class="product-link" href="./product_page_IE.html">IE</a></div>
+                                      <div class="product_price">$33.3</div>
+                                      <button class="add-but fa fa-plus"></button>
+                                    </div>
+                                    <div class="col-sm">
+                                      <a href="./product_page_CUHK.html"><img class="thumbnail" src="https://upload.wikimedia.org/wikipedia/en/thumb/8/87/CUHK.svg/1200px-CUHK.svg.png" alt="logo"></a>
+                                      <div class="product_name"><a class="product-link" href="./product_page_CUHK.html">CUHK</a></div>
+                                      <div class="product_price">$33.3</div>
+                                      <button class="add-but fa fa-plus"></button>
+                                    </div>
+                                    <div class="col-sm">
+                                      <a href="./product_page_CUHK.html"><img class="thumbnail" src="https://upload.wikimedia.org/wikipedia/en/thumb/8/87/CUHK.svg/1200px-CUHK.svg.png" alt="logo"></a>
+                                      <div class="product_name"><a class="product-link" href="./product_page_CUHK.html">CUHK</a></div>
+                                      <div class="product_price">$33.3</div>
+                                      <button class="add-but fa fa-plus"></button>
+                                    </div>
+                              </div>
+
+                              <div class="row">
+                                    <div class="col-sm">
+                                      <a href="./product_page_IE.html"><img class="thumbnail" src="https://media.licdn.com/dms/image/C4E0BAQGG-uRZ3dYPag/company-logo_400_400/0?e=1576713600&v=beta&t=dxKZhze2LVxd1ZAkN86jyQcg9V3ADDwzTdNdSIIOwso" alt="logo"></a>
+                                      <div class="product_name"><a class="product-link" href="./product_page_IE.html">IE</a></div>
+                                      <div class="product_price">$33.3</div>
+                                      <button class="add-but fa fa-plus"></button>
+                                    </div>
+                                    <div class="col-sm">
+                                      <a href="./product_page_CUHK.html"><img class="thumbnail" src="https://upload.wikimedia.org/wikipedia/en/thumb/8/87/CUHK.svg/1200px-CUHK.svg.png" alt="logo"></a>
+                                      <div class="product_name"><a class="product-link" href="./product_page_CUHK.html">CUHK</a></div>
+                                      <div class="product_price">$33.3</div>
+                                      <button class="add-but fa fa-plus"></button>
+                                    </div>
+                                    <div class="col-sm">
+                                      <a href="./product_page_CUHK.html"><img class="thumbnail" src="https://upload.wikimedia.org/wikipedia/en/thumb/8/87/CUHK.svg/1200px-CUHK.svg.png" alt="logo"></a>
+                                      <div class="product_name"><a class="product-link" href="./product_page_CUHK.html">CUHK</a></div>
+                                      <div class="product_price">$33.3</div>
+                                      <button class="add-but fa fa-plus"></button>
+                                    </div>
+                              </div>
+                            
+                        </div>
+            </div>
+            <div class="tab-pane fade" id="list-food" role="tabpanel" aria-labelledby="list-food-list">...</div>
+            <div class="tab-pane fade" id="list-gadgets" role="tabpanel" aria-labelledby="list-gadgets-list">...</div>
+            <div class="tab-pane fade" id="list-clothes" role="tabpanel" aria-labelledby="list-clothes-list">...</div>
+          </div>
+        </div>
+</div>
+
+</body>
+</html>
